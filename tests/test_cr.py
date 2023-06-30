@@ -17,6 +17,11 @@ class Router(fastdry.cr.ClassRouter):
         super().__init__()
         self.name = name
 
+    @property
+    def some_random_property(self):
+        """test to make sure this is not accessed during initialization of the router"""
+        raise AttributeError("Should not be accessed")
+
     @fastdry.cr.get("/hello")
     def hello(self) -> dict:
         return {"hello": self.name}

@@ -516,9 +516,14 @@ class ClassRouter(fastapi.APIRouter):
             generate_unique_id_function=generate_unique_id_function,
         )
 
-        for name in dir(self):
+        for name in dir(self.__class__):
             if name.startswith("_"):
                 continue
+            
+            cls_attr = getattr(self.__class__, name)
+            if isinstance(cls_attr, property):
+                continue
+
             attr = getattr(self, name)
             if callable(attr) and hasattr(attr, "_fastdry_cr"):
                 self.add_api_route(
