@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "fastdry"
+version = "0.1.0"
+description = ""
+authors = ["Florian Ludwig <f.ludwig@greyrook.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.96.0"
+
+[tool.poetry.group.dev.dependencies]
+httpx = "^0.24.1"
+pytest = "^7.3.1"
+black = "^23.3.0"
+mypy = "^1.4.1"
+ruff = "^0.0.275"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
