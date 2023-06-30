@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.96.0"
+fastapi = ">=0.96.0,<0.100.0"
 
 [tool.poetry.group.dev.dependencies]
 httpx = "^0.24.1"
