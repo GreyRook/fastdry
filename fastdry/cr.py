@@ -108,6 +108,7 @@ def put(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["PUT"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -163,6 +164,7 @@ def post(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["POST"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -218,6 +220,7 @@ def delete(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["DELETE"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -273,6 +276,7 @@ def options(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["OPTIONS"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -328,6 +332,7 @@ def head(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["HEAD"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -383,6 +388,7 @@ def patch(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["PATCH"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
@@ -438,6 +444,7 @@ def trace(
 ) -> Callable[[FUNC_T], FUNC_T]:
     return _decorator(
         path=path,
+        methods=["TRACE"],
         response_model=response_model,
         status_code=status_code,
         tags=tags,
