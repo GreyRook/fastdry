@@ -23,8 +23,16 @@ class Router(fastdry.cr.ClassRouter):
         raise AttributeError("Should not be accessed")
 
     @fastdry.cr.get("/hello")
-    def hello(self) -> dict:
+    def get(self) -> dict:
         return {"hello": self.name}
+
+    @fastdry.cr.get("/hallo")
+    def get_hallo(self) -> dict:
+        return {"hallo": self.name}
+
+    @fastdry.cr.post("/hello")
+    def post(self) -> dict:
+        return {"post": self.name}
 
 
 def test_get_decorator():
@@ -47,7 +55,14 @@ def test_class_router():
     assert response.status_code == 200
     assert response.json() == {"hello": "world"}
 
-    client = TestClient(app)
+    response = client.get("/world/hallo")
+    assert response.status_code == 200
+    assert response.json() == {"hallo": "world"}
+
+    response = client.post("/world/hello")
+    assert response.status_code == 200
+    assert response.json() == {"post": "world"}
+
     response = client.get("/test/hello")
     assert response.status_code == 200
     assert response.json() == {"hello": "test"}
