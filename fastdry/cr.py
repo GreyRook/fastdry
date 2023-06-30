@@ -519,14 +519,32 @@ class ClassRouter(fastapi.APIRouter):
         for name in dir(self.__class__):
             if name.startswith("_"):
                 continue
-            
+
             cls_attr = getattr(self.__class__, name)
             if isinstance(cls_attr, property):
                 continue
 
             attr = getattr(self, name)
             if callable(attr) and hasattr(attr, "_fastdry_cr"):
+                self._update_route_attr(attr._fastdry_cr)
                 self.add_api_route(
                     endpoint=attr,
                     **attr._fastdry_cr,
                 )
+
+    def _update_route_attr(self, attrs: dict) -> None:
+        if attrs["summary"]:
+            attrs["summary"] = attrs["summary"].format(self=self)
+        if attrs["description"]:
+            attrs["description"] = attrs["description"].format(self=self)
+        if attrs["response_description"]:
+            attrs["response_description"] = attrs["response_description"].format(
+                self=self
+            )
+        if attrs["operation_id"]:
+            attrs["operation_id"] = attrs["operation_id"].format(self=self)
+        if attrs["name"]:
+            attrs["name"] = attrs["name"].format(self=self)
+        if attrs["tags"]:
+            attrs["tags"] = [tag.format(self=self) for tag in attrs["tags"]]
+        return
