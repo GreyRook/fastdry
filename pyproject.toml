@@ -7,14 +7,19 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = ">=0.96.0,<0.100.0"
+fastapi = ">=0.100.0"
+pydantic = "^2.3.0"
 
 [tool.poetry.group.dev.dependencies]
 httpx = "^0.24.1"
 pytest = "^7.3.1"
+pytest-cov = "^4.1.0"
 black = "^23.3.0"
 mypy = "^1.4.1"
 ruff = "^0.0.275"
+
+[tool.poetry.group.examples.dependencies]
+uvicorn = "^0.23.2"
 
 [build-system]
 requires = ["poetry-core"]

@@ -2,13 +2,14 @@ from enum import Enum
 from typing import Any, Callable, Dict, List, Optional, Sequence, Type, TypeVar, Union
 
 import fastapi
+from fastapi import routing
+from fastapi.types import IncEx
 from fastapi.params import Depends
 from fastapi.datastructures import Default
-from fastapi.routing import APIRoute, BaseRoute
+from fastapi.routing import BaseRoute
 from fastapi.utils import generate_unique_id
 from starlette.responses import JSONResponse, Response
 from starlette.types import ASGIApp, Lifespan
-from fastapi.encoders import DictIntStrAny, SetIntStr
 
 
 FUNC_T = TypeVar("FUNC_T", bound=Callable[..., Any])
@@ -35,8 +36,8 @@ def get(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -46,7 +47,7 @@ def get(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -91,8 +92,8 @@ def put(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -102,7 +103,7 @@ def put(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -147,8 +148,8 @@ def post(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -158,7 +159,7 @@ def post(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -203,8 +204,8 @@ def delete(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -214,7 +215,7 @@ def delete(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -259,8 +260,8 @@ def options(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -270,7 +271,7 @@ def options(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -315,8 +316,8 @@ def head(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -326,7 +327,7 @@ def head(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -371,8 +372,8 @@ def patch(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -382,7 +383,7 @@ def patch(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -427,8 +428,8 @@ def trace(
     responses: Optional[Dict[Union[int, str], Dict[str, Any]]] = None,
     deprecated: Optional[bool] = None,
     operation_id: Optional[str] = None,
-    response_model_include: Optional[Union[SetIntStr, DictIntStrAny]] = None,
-    response_model_exclude: Optional[Union[SetIntStr, DictIntStrAny]] = None,
+    response_model_include: Optional[IncEx] = None,
+    response_model_exclude: Optional[IncEx] = None,
     response_model_by_alias: bool = True,
     response_model_exclude_unset: bool = False,
     response_model_exclude_defaults: bool = False,
@@ -438,7 +439,7 @@ def trace(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
-    generate_unique_id_function: Callable[[APIRoute], str] = Default(
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
         generate_unique_id
     ),
 ) -> Callable[[FUNC_T], FUNC_T]:
@@ -484,7 +485,7 @@ class ClassRouter(fastapi.APIRouter):
         redirect_slashes: bool = True,
         default: Optional[ASGIApp] = None,
         dependency_overrides_provider: Optional[Any] = None,
-        route_class: Type[APIRoute] = APIRoute,
+        route_class: Type[routing.APIRoute] = routing.APIRoute,
         on_startup: Optional[Sequence[Callable[[], Any]]] = None,
         on_shutdown: Optional[Sequence[Callable[[], Any]]] = None,
         # the generic to Lifespan[AppType] is the type of the top level application
@@ -492,7 +493,7 @@ class ClassRouter(fastapi.APIRouter):
         lifespan: Optional[Lifespan[Any]] = None,
         deprecated: Optional[bool] = None,
         include_in_schema: bool = True,
-        generate_unique_id_function: Callable[[APIRoute], str] = Default(
+        generate_unique_id_function: Callable[[routing.APIRoute], str] = Default(
             generate_unique_id
         ),
     ) -> None:
