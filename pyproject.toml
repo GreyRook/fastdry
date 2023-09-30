@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.9"
 fastapi = ">=0.100.0"
 pydantic = "^2.3.0"
+fastapi-offline = "^1.6.1"
 
 [tool.poetry.group.dev.dependencies]
 httpx = "^0.24.1"
@@ -17,6 +18,11 @@ pytest-cov = "^4.1.0"
 black = "^23.3.0"
 mypy = "^1.4.1"
 ruff = "^0.0.275"
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.4.3"
+
 
 [tool.poetry.group.examples.dependencies]
 uvicorn = "^0.23.2"
