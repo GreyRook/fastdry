@@ -1,0 +1,42 @@
+nav:
+- Introduction: intro.md
+# - Inh
+
+
+site_name: FastDRY User Documentation
+# repo_url: https://git.r0k.de/gr/internal/guides/internal
+# edit_uri: https://git.r0k.de/-/ide/project/gr/internal/guides/internal/tree/main/-/docs/
+theme:
+  name: material
+  # custom_dir: custom_theme
+  # logo: theme/square-logo.svg
+  # font: false
+  language: en
+  # features:
+  # - navigation.tabs
+# extra_css:
+# - theme/extra.css
+
+# plugins:
+# - search
+# - ezlinks
+# - tags
+
+markdown_extensions:
+# - admonition
+# - pymdownx.details
+# - pymdownx.tasklist
+# - pymdownx.superfences
+# - pymdownx.tabbed
+ - pymdownx.snippets
+# - attr_list
+# - abbr
+# - attr_list
+# - footnotes
+# - pymdownx.snippets:
+#     auto_append:
+#     - includes/abbreviations.md
+
+# - pymdownx.emoji:
+#     emoji_index: !!python/name:materialx.emoji.twemoji
+#     emoji_generator: !!python/name:materialx.emoji.to_svg
